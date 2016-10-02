@@ -1,0 +1,5 @@
+14:35:10.376 [main] ERROR by.liudchyk.present.creator.PresentCreator - Incorrect data in your file
+14:45:20.849 [main] ERROR by.liudchyk.present.creator.PresentCreator - Precents of chocolate must be between 0 and 100
+15:57:31.647 [main] ERROR by.liudchyk.present.creator.PresentCreator - Incorrect data in your file
+15:58:02.617 [main] ERROR by.liudchyk.present.creator.PresentCreator - Incorrect data in your file
+11:36:21.929 [main] ERROR by.liudchyk.present.creator.PresentCreator - Incorrect data in your file

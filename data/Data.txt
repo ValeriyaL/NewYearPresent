@@ -1,0 +1,5 @@
+Sweet 200,0 10 Spartak 10,0 false
+Jujube 50,0 40 Roshen false "kiwi"
+Jujube 75,0 15 Vitba false "orange"
+Chocolate 100,0 20 Slodych 20,0 80
+Sweet 100,0 22 Komunarka 40,0 true
