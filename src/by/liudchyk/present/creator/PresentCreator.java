@@ -1,52 +1,61 @@
 package by.liudchyk.present.creator;
 
 
+
 import by.liudchyk.present.entity.*;
+import by.liudchyk.present.exception.ConfectionException;
 import by.liudchyk.present.exception.PercentException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class PresentCreator {
-    final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger();
+    private final String ARG_PATTERN = "\\s+";
+    private final int CONFECTION_POS = 0;
 
-    public HashSet<Confection> makePresent(String fileName) throws FileNotFoundException {
+    public Present makePresent(String fileName) throws ConfectionException {
         HashSet<Confection> present = new HashSet<>();
+        String owner="";
+        Scanner in;
         try {
-            Scanner in = new Scanner(new File(fileName));
-            while (in.hasNext()) {
-                String conf = in.next();
-                switch (conf) {
-                    case "Sweet":
-                        Sweet sweet = new Sweet(in.nextDouble(), in.nextInt(), in.next(), in.nextDouble(), in.nextBoolean());
-                        present.add(sweet);
-                        break;
-                    case "Jujube":
-                        Jujube jujube = new Jujube(in.nextDouble(), in.nextInt(), in.next(), in.nextBoolean(), in.next());
-                        present.add(jujube);
-                        break;
-                    case "Chocolate":
-                        try {
-                            Chocolate choco = new Chocolate(in.nextDouble(), in.nextInt(), in.next(), in.nextDouble(), in.nextInt());
-                            present.add(choco);
-                        } catch (PercentException e) {
-                            LOG.error("Precents of chocolate must be between 0 and 100");
-                        }
-                        break;
-                    default:
-                        LOG.error("Incorrect data in your file");
-                }
-            }
-        }catch (NoSuchElementException e){
-            LOG.error("Incorrect data in your file");
+            in = new Scanner(new File(fileName));
+        } catch (FileNotFoundException e) {
+            LOG.fatal("File not found",e);
+            throw new RuntimeException("No file", e);
         }
-        return present;
+        if(in.hasNextLine()) {
+            owner = in.nextLine();
+        }
+        while (in.hasNextLine()) {
+            String[] arguments =  in.nextLine().trim().split(ARG_PATTERN);
+            String conf = arguments[CONFECTION_POS];
+            Confection addingConfection;
+            switch (conf) {
+                case "Sweet":
+                    addingConfection = new SweetFactory().makeSweet(arguments);
+                    break;
+                case "Jujube":
+                    addingConfection = new JujubeFactory().makeJujube(arguments);
+                    break;
+                case "Chocolate":
+                    addingConfection = new ChocolateFactory().makeChocolate(arguments);
+                    break;
+                default:
+                    throw new ConfectionException("Wrong data in your file");
+            }
+            if(addingConfection!=null){
+                present.add(addingConfection);
+            }
+        }
+        return new Present(present, owner);
     }
 }

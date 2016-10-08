@@ -4,8 +4,8 @@ package by.liudchyk.present.entity;
 public class Jujube extends Floury {
     private String fruit;
 
-    public Jujube(double weight, int calorificValue, String manufacturer, boolean stuffing, String fruit) {
-        super(weight, calorificValue, manufacturer, stuffing);
+    public Jujube(double weight, int calorificValue, String manufacturer, String name, boolean stuffing, String fruit) {
+        super(weight, calorificValue, manufacturer,name, stuffing);
         this.fruit = fruit;
     }
 
@@ -21,6 +21,6 @@ public class Jujube extends Floury {
     public String toString() {
         return "Jujube{" + super.toString()+
                 " fruit=" + fruit  +
-                '}';
+                '}'+";\n";
     }
 }

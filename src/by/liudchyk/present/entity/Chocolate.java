@@ -6,11 +6,8 @@ import by.liudchyk.present.exception.PercentException;
 public class Chocolate extends Sugary {
     private int percent;
 
-    public Chocolate() {
-    }
-
-    public Chocolate(double weight, int calorificValue, String manufacturer, double sugar, int percent) throws PercentException {
-        super(weight, calorificValue, manufacturer, sugar);
+    public Chocolate(double weight, int calorificValue, String manufacturer, String name, double sugar, int percent) throws PercentException {
+        super(weight, calorificValue, manufacturer,name, sugar);
         if(percent>=0 && percent<=100) {
             this.percent = percent;
         } else {
@@ -34,6 +31,6 @@ public class Chocolate extends Sugary {
     public String toString() {
         return "Chocolate{" +super.toString()+
                 " percent=" + percent +
-                " }" ;
+                " }"+";\n" ;
     }
 }

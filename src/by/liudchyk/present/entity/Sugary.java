@@ -4,11 +4,8 @@ package by.liudchyk.present.entity;
 abstract public class Sugary extends Confection {
     private double sugar;
 
-    public Sugary() {
-    }
-
-    public Sugary(double weight, int calorificValue, String manufacturer, double sugar) {
-        super(weight, calorificValue, manufacturer);
+    public Sugary(double weight, int calorificValue, String manufacturer, String name, double sugar) {
+        super(weight, calorificValue, manufacturer,name);
         this.sugar = sugar;
     }
 

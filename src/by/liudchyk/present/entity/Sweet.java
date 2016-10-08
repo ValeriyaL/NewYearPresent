@@ -4,10 +4,8 @@ package by.liudchyk.present.entity;
 public class Sweet extends Sugary {
     private boolean chocolate;
 
-    public Sweet() {}
-
-    public Sweet(double weight, int calorificValue, String manufacturer, double sugar, boolean chocolate) {
-        super(weight, calorificValue, manufacturer, sugar);
+    public Sweet(double weight, int calorificValue, String manufacturer, String name, double sugar, boolean chocolate) {
+        super(weight, calorificValue, manufacturer, name, sugar);
         this.chocolate = chocolate;
     }
 
@@ -23,6 +21,6 @@ public class Sweet extends Sugary {
     public String toString() {
         return "Sweet{" + super.toString() +
                 " chocolate=" + chocolate +
-                '}';
+                '}'+";\n";
     }
 }

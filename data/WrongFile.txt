@@ -1,2 +1,0 @@
-Sweet 200,0 10 Spartak 10,0 false
-Jujube 50,0 forty Roshen false "kiwi"

@@ -4,10 +4,8 @@ package by.liudchyk.present.entity;
 abstract public class Floury extends Confection{
     private boolean stuffing;
 
-    public Floury() {}
-
-    public Floury(double weight, int calorificValue, String manufacturer, boolean stuffing) {
-        super(weight, calorificValue, manufacturer);
+    public Floury(double weight, int calorificValue, String manufacturer, String name, boolean stuffing) {
+        super(weight, calorificValue, manufacturer,name);
         this.stuffing = stuffing;
     }
 

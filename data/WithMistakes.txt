@@ -1,9 +1,9 @@
 Alex
-Sweet 200.0 10 Spartak Vityaz 10.0 false
+Sweet 10 Spartak Vityaz 10.0 false
 Jujube 50.0 20 Roshen Sun false "kiwi"
 Jujube 75.0 15 Vitba Vitebsk false "orange"
-Chocolate 100.0 20 Slodych Gorky 20.0 80
+Chocolate 100.0 smth Slodych Gorky 20.0 80
 Sweet 100.0 22 Komunarka Alenka 40.0 true
 Jujube 76.0 14 Vitba Worms true "orange"
-Chocolate 100.0 30 Slodych Cow 20.0 80
+Chocolate 100.0 30 Slodych Cow 20.0 -80
 Sweet 100.0 22 Spartak Squirell 40.0 false
