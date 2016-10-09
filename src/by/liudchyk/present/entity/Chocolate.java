@@ -4,11 +4,13 @@ import by.liudchyk.present.exception.PercentException;
 
 
 public class Chocolate extends Sugary {
+    private final int MIN_PERCENT = 0;
+    private final int MAX_PERCENT = 100;
     private int percent;
 
     public Chocolate(double weight, int calorificValue, String manufacturer, String name, double sugar, int percent) throws PercentException {
         super(weight, calorificValue, manufacturer,name, sugar);
-        if(percent>=0 && percent<=100) {
+        if(percent>=MIN_PERCENT && percent<=MAX_PERCENT) {
             this.percent = percent;
         } else {
             throw new PercentException();
@@ -20,7 +22,7 @@ public class Chocolate extends Sugary {
     }
 
     public void setPercent(int percent) throws PercentException {
-        if(percent>=0 && percent<=100) {
+        if(percent>=MIN_PERCENT && percent<=MAX_PERCENT) {
             this.percent = percent;
         } else {
             throw new PercentException();

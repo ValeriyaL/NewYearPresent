@@ -11,6 +11,8 @@ import org.apache.logging.log4j.Logger;
 public class Runner {
     private static final Logger LOG = LogManager.getLogger();
     private static final String PATH = "data/Data.txt";
+    private static final int START_SUGAR = 10;
+    private static final int END_SUGAR = 30;
 
     public static void main(String[] args) {
         PresentCreator myPresent = new PresentCreator();
@@ -19,7 +21,7 @@ public class Runner {
         try {
             Present present = myPresent.makePresent(PATH);
             report.makePresentReport(present);
-            report.sugarReport(act.findSugarConfection(present,10,30),10,30);
+            report.sugarReport(act.findSugarConfection(present,START_SUGAR,END_SUGAR),START_SUGAR,END_SUGAR);
             report.weightReport(present.getOwner(),act.totalWeight(present));
         } catch (ConfectionException e){
             LOG.error(e);

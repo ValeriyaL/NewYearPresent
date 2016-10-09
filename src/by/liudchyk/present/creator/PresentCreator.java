@@ -41,13 +41,13 @@ public class PresentCreator {
             Confection addingConfection;
             switch (conf) {
                 case "Sweet":
-                    addingConfection = new SweetFactory().makeSweet(arguments);
+                    addingConfection = new SweetFactory().makeConfection(arguments);
                     break;
                 case "Jujube":
-                    addingConfection = new JujubeFactory().makeJujube(arguments);
+                    addingConfection = new JujubeFactory().makeConfection(arguments);
                     break;
                 case "Chocolate":
-                    addingConfection = new ChocolateFactory().makeChocolate(arguments);
+                    addingConfection = new ChocolateFactory().makeConfection(arguments);
                     break;
                 default:
                     throw new ConfectionException("Wrong data in your file");

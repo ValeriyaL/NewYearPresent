@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * Created by Admin on 08.10.2016.
  */
-public class SweetFactory {
+public class SweetFactory extends AbstractConfectionFactory{
     private static final Logger LOG = LogManager.getLogger();
     private final int WEIGHT_POS = 1;
     private final int CALORIES_POS = 2;
@@ -16,7 +16,7 @@ public class SweetFactory {
     private final int SUGAR_POS = 5;
     private final int CHOCOLATE_POS = 6;
 
-    public Sweet makeSweet(String... args){
+    public Sweet makeConfection(String... args){
         try {
             return new Sweet(Double.valueOf(args[WEIGHT_POS]), Integer.valueOf(args[CALORIES_POS]),
                     args[MANUFACTURER_POS], args[NAME_POS], Double.valueOf(args[SUGAR_POS]),
